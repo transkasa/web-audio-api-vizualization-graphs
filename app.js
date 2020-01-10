@@ -15,7 +15,7 @@ function wave() {
              function(stream) {
                source = audioCtx.createMediaStreamSource(stream);
                source.connect(analyser);
-               analyser.connect();
+               analyser.connect(distortion);
                distortion.connect(audioCtx.destination);
            })
            .catch( function(err) { console.log('getUserMedia error: ' + err);})
@@ -73,7 +73,7 @@ function bar() {
             function(stream) {
               source = audioCtx.createMediaStreamSource(stream);
               source.connect(analyser);
-              analyser.connect();
+              analyser.connect(distortion);
               distortion.connect(audioCtx.destination);
           })
           .catch( function(err) { console.log('getUserMedia error: ' + err);})
